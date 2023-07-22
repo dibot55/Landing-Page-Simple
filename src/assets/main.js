@@ -1,5 +1,5 @@
 // API de mi canal de youtube
-const url = 'https://youtube-v31.p.rapidapi.com/captions?part=snippet&videoId=M7FIvfx5J10';
+const url = 'https://youtube-v31.p.rapidapi.com/search?channelId=UCnoUsbif_B_dsW3-WUH_oYg&part=snippet%2Cid&order=date&maxResults=50';
 const content = null || document.getElementById('content');
 const options = {
 	method: 'GET',
@@ -13,7 +13,6 @@ async function fetchData(urlApi){
   try {
     const response = await fetch(urlApi, options);
     const result = await response.json();
-    console.log(result);
     return result;
   } catch (error) {
     console.error(error);
@@ -28,7 +27,7 @@ async function fetchData(urlApi){
       <div class="group relative">
         <div
           class="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden          group-hover:opacity-75 lg:aspect-none">
-          <img src="${video.snippet.thumbnail.high.url}" alt="${video.snippet.description}" class="w-full">
+          <img src="${video.snippet.thumbnails.high.url}" alt="${video.snippet.description}" class="w-full">
         </div>
         <div class="mt-4 flex justify-between">
           <h3 class="text-sm text-gray-700">
